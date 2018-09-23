@@ -9,6 +9,7 @@ body {
 	overflow: hidden;
 }
 
+/* Left container with logo and title */
 #logo-container {
 	width: 6%;
 	display: flex;
@@ -34,14 +35,15 @@ body {
 	transform-origin: center center 0;
 	transform: rotate(-90deg);
 	width: 300px;
-	
 }
 
 #logo-container>#agency>h1 {
-	font-weight: 400;
+	text-align: center;
+	letter-spacing: 3.5px;
+	font-size: 1.5em;
+	font-weight: 700;
 	margin-top: 5px;
 	margin-bottom: 0;
-	width: 300px;
 }
 
 #logo-container>#vk {
@@ -53,22 +55,13 @@ body {
 	width: 35%;
 }
 
+/* Container with main text*/
 #text-container {	
 	width: 54%;
 	background-color: #fff;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-}
-
-#diagonal {	
-	top: -15%;
-	position: absolute;
-	right: -20%;
-	height: 120vh;
-	width:350px;
-	background-color: #fff;
-	transform: rotate(15deg);
 }
 
 #text-box {
@@ -80,6 +73,7 @@ body {
 }
 
 #text-box>h1 {
+	margin-top: 0;
 	font-weight: 700;
 	font-size: 2em;
 }
@@ -89,16 +83,116 @@ body {
 	font-size: 1em;
 }
 
-#cup-box {
-	z-index: 100;
+/* Diagonal background line */
+#diagonal {	
+	top: -15%;
 	position: absolute;
-	top: 20%;
-	right: 10%;
-	height: 70%;
-
+	right: -20%;
+	height: 120vh;
+	width:350px;
+	background-color: #fff;
+	transform: rotate(15deg);
 }
 
-#image-container {
+/* Container for main image */
+#image-box {
+	z-index: 100;
+	position: absolute;
+	top: 23%;
+	right: 10%;
+	height: 70%;
+}
+
+/* Second background color */
+#second-background {
 	width: 40%;
 	background-color: #ffc000;
+}
+
+/* Top buttons */
+#top-menu {
+	z-index: 100;
+	font-weight: 600;
+	font-size: .6em;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 18%;
+}
+
+#top-menu>div {
+	color: #fff;
+	transition: all .3s ease-out;
+}
+
+#top-menu>div:hover {
+	transform: scale(1.5);
+	color: #333;
+}
+
+/* Bottom buttons */
+#bottom-menu {
+	font-weight: 600;
+	z-index: 100;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	width: 65%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#home-button {
+	transition: all .3s ease;
+}
+
+#home-button:hover {
+	transform: scale(1.2);
+	color: #3370d7;
+}
+
+/* Slider navigation */
+#slider-counter {
+	width: 210px;
+	height: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.number {
+	margin: auto;
+	text-align: center;
+	width: 30px;
+	color: #666666;
+	transition: all .3s ease-out;
+}
+
+.number.active {
+	transform: scale(1.2);
+	color: #3370d7;
+}
+
+.number:hover {
+	transform: scale(1.5);
+}
+
+.line {
+	margin: auto;
+	height: 2px;
+	background-color: #1d1d1d;
+	width: 0;
+	transition: width .3s ease-out;
+}
+
+.line.medium {
+	width: 40px;
+}
+
+.line.long {
+	width: 80px;
 }

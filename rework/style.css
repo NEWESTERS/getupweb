@@ -2,17 +2,11 @@ body {
 	margin: 0;
 }
 
-#bg-wrap {
+#wrap {
 	display: flex;
 	flex-direction: row;
 	height: 100vh;
 	overflow: hidden;
-}
-
-@media screen and (max-width: 768px) {
-	#bg-wrap {
-		height: 50vh;
-	}
 }
 
 /* Left container with logo and title */
@@ -21,12 +15,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-}
-
-@media screen and (max-width: 768px) {
-	#logo-container {
-		display: none;
-	}
 }
 
 #logo-container>#logo {
@@ -68,48 +56,19 @@ body {
 }
 
 /* Container with main text*/
-#first-background {	
+#text-container {	
 	width: 54%;
 	background-color: #fff;
 	position: relative;
-}
-
-@media screen and (max-width: 768px) {
-	#first-background {
-		width: 40%;
-	}
-}
-
-#content {
-	height: 100vh;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	padding-left: 10%;
-	z-index: 100;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-@media screen and (max-width: 768px) {
-	#content {
-		padding-left: 0;
-		flex-direction: column;
-		flex-flow: column-reverse;
-	}
-
-	#text-box {
-		height: 40vh;
-		padding: 5vh;
-	}
+	flex-direction: column;
 }
 
 #text-box {
 	font-family: "Manrope";
 	z-index: 100;
 	margin: auto;
-	width: 50%;
+	width: 60%;
 	max-height: 60%;
 }
 
@@ -126,7 +85,7 @@ body {
 
 /* Diagonal background line */
 #diagonal {	
-	top: -20%;
+	top: -15%;
 	position: absolute;
 	right: -20%;
 	height: 120vh;
@@ -135,40 +94,19 @@ body {
 	transform: rotate(15deg);
 }
 
-@media screen and (max-width: 768px) {
-	#diagonal {
-		right: -40%;
-		height: 60vh;
-	}
-}
-
 /* Container for main image */
 #image-box {
-	padding-right: 15%;
 	z-index: 100;
-	margin: auto;
-	height: 80%;
-	width: auto;
-}
-
-@media screen and (max-width: 768px) {
-	#image-box {
-		padding: 0;
-		height: 50vh;
-		width: auto;
-	}
+	position: absolute;
+	top: 23%;
+	right: 10%;
+	height: 70%;
 }
 
 /* Second background color */
 #second-background {
 	width: 40%;
 	background-color: #ffc000;
-}
-
-@media screen and (max-width: 768px) {
-	#second-background {
-		width: 60%;
-	}
 }
 
 /* Top buttons */
@@ -196,17 +134,6 @@ body {
 	cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-	#top-menu {
-		width: 100%;
-		right: 0;
-	}
-
-	#top-menu>div {
-		color: #333;
-	}
-}
-
 /* Bottom buttons */
 #bottom-menu {
 	font-weight: 600;
@@ -218,12 +145,6 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-}
-
-@media screen and (max-width: 768px) {
-	#bottom-menu {
-		width: 100%;
-	}
 }
 
 #home-button {

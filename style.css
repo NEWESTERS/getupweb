@@ -124,6 +124,12 @@ body {
 	font-size: 1em;
 }
 
+@media screen and (max-width: 768px) {
+	#text-box {
+		width: 90%;
+	}
+}
+
 /* Diagonal background line */
 #diagonal {	
 	top: -20%;

@@ -69,7 +69,7 @@ body {
 
 /* Container with main text*/
 #first-background {	
-	width: 54%;
+	width: 44%;
 	background-color: #fff;
 	position: relative;
 }
@@ -101,22 +101,36 @@ body {
 
 	#text-box {
 		height: 40vh;
-		padding: 5vh;
+		
 	}
 }
 
 #text-box {
 	font-family: "Manrope";
 	z-index: 100;
+	/*
 	margin: auto;
-	width: 50%;
 	max-height: 60%;
+	*/
+	width: 60%;
+	height: 100vh;
+	transition: all .6s ease;
+	opacity: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#text-box.hidden {
+	opacity: 0;
 }
 
 #text-box>h1 {
 	margin-top: 0;
+	margin-bottom: -10px;
 	font-weight: 700;
 	font-size: 2em;
+	line-height: 1.2em;
 }
 
 #text-box>p {
@@ -126,17 +140,19 @@ body {
 
 @media screen and (max-width: 768px) {
 	#text-box {
+		margin: 0 auto 0 auto;
 		width: 90%;
 	}
 }
 
 /* Diagonal background line */
 #diagonal {	
-	top: -20%;
+	z-index: -100;
+	top: -22%;
 	position: absolute;
-	right: -20%;
-	height: 120vh;
-	width:350px;
+	right: -42%;
+	height: 130vh;
+	width: 500px;
 	background-color: #fff;
 	transform: rotate(15deg);
 }
@@ -153,21 +169,43 @@ body {
 	padding-right: 15%;
 	z-index: 100;
 	margin: auto;
-	height: 80%;
+	height: 70%;
 	width: auto;
+	transform-origin: 40% 45% 0;
+}
+
+#image-box.rotate {
+	animation: rotate 1.2s ease;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	66% {
+		transform: rotate(405deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @media screen and (max-width: 768px) {
 	#image-box {
+		margin: -10px auto -10px auto;
 		padding: 0;
-		height: 50vh;
+		height: 40vh;
 		width: auto;
+		transform-origin: center 45% 0;
 	}
 }
 
 /* Second background color */
 #second-background {
-	width: 40%;
+	z-index: -200;
+	width: 50%;
 	background-color: #ffc000;
 }
 
@@ -179,7 +217,7 @@ body {
 
 /* Top buttons */
 #top-menu {
-	z-index: 100;
+	z-index: 200;
 	font-weight: 600;
 	font-size: .6em;
 	position: absolute;
@@ -218,7 +256,7 @@ body {
 	font-weight: 600;
 	z-index: 100;
 	position: absolute;
-	bottom: 20px;
+	bottom: 10px;
 	left: 0;
 	width: 65%;
 	display: flex;

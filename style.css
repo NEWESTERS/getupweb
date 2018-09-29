@@ -4,15 +4,17 @@ body {
 }
 
 #bg-wrap {
+	position: absolute;
 	display: flex;
 	flex-direction: row;
-	height: 100vh;
+	height: 100%;
+	width: 100vw;
 	overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
 	#bg-wrap {
-		height: 45vh;
+		height: 45%;
 	}
 }
 
@@ -82,7 +84,7 @@ body {
 }
 
 #content {
-	height: 100vh;
+	height: 100%;
 	position: absolute;
 	padding-left: 10%;
 	z-index: 100;
@@ -98,11 +100,6 @@ body {
 		flex-direction: column;
 		flex-flow: column-reverse;
 		justify-content: center;
-	}
-
-	#text-box {
-		height: 40vh;
-		
 	}
 }
 
@@ -167,7 +164,7 @@ body {
 
 @media screen and (max-width: 768px) {
 	#diagonal {
-		top: -30%;
+		top: -40%;
 		right: -40%;
 		height: 60vh;
 	}

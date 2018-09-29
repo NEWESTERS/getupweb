@@ -68,7 +68,7 @@ window.onload = _ => {
 }
 
 function Slider() {
-	let image = document.getElementById("image-box")
+	let image = document.querySelector("#image-box>img")
 	let bg = document.getElementById("second-background")
 	let text = document.querySelector("#text-box>p")
 	let header = document.querySelector("#text-box>h1")

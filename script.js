@@ -23,48 +23,7 @@ let slides = [
 ]
 
 window.onload = _ => {
-	let numbers = document.getElementsByClassName("number")
-	let lines = document.getElementsByClassName("line")
 	let slider = new Slider()
-
-	numbers[0].onclick = _ => {
-		numbers[0].classList.add("active")
-		numbers[1].classList.remove("active")
-		numbers[2].classList.remove("active")
-
-		lines[0].classList.remove("medium")
-		lines[1].classList.remove("long")
-		lines[1].classList.remove("medium")
-		lines[0].classList.add("long")
-
-		slider.set(0)
-	}
-
-	numbers[1].onclick = _ => {
-		numbers[0].classList.remove("active")
-		numbers[1].classList.add("active")
-		numbers[2].classList.remove("active")
-
-		lines[0].classList.remove("long")
-		lines[1].classList.remove("long")
-		lines[0].classList.add("medium")
-		lines[1].classList.add("medium")
-
-		slider.set(1)
-	}
-
-	numbers[2].onclick = _ => {
-		numbers[0].classList.remove("active")
-		numbers[1].classList.remove("active")
-		numbers[2].classList.add("active")
-
-		lines[0].classList.remove("long")
-		lines[0].classList.remove("medium")
-		lines[1].classList.remove("medium")
-		lines[1].classList.add("long")
-
-		slider.set(2)
-	}
 }
 
 function Slider() {
@@ -73,12 +32,33 @@ function Slider() {
 	let text = document.querySelector("#text-box>p")
 	let header = document.querySelector("#text-box>h1")
 	let textBox = document.getElementById("text-box")
+	let leftButton = document.querySelector("#left-arrow")
+	let rightButton = document.querySelector("#right-arrow")
+	let current = 0
+
+	leftButton.onclick = _ => {
+		this.turnLeft()
+	}
+
+	rightButton.onclick = _ => {
+		this.turnRight()
+	}
+
+	this.turnLeft = _ => {
+		this.set(current != 0 ? current - 1 : 2)
+	}
+
+	this.turnRight = _ => {
+		this.set(current != 2 ? current + 1 : 0)
+	}
+
 
 	image.src = slides[0].img
 	text.innerHTML = slides[0].text
 	header.innerHTML = slides[0].header
 
 	this.set = num => {
+		current = num
 		image.classList.add("rotate")
 		textBox.classList.add("hidden")
 		
@@ -96,7 +76,67 @@ function Slider() {
 			image.classList.remove("rotate")
 		}, 1200)
 
+		switch(num) {
+			case 0:
+				this._setFirstSlide()
+				break
+			case 1:
+				this._setSecondSlide()
+				break
+			case 2:
+				this._setThirdSlide()
+				break
+		}
+
 		bg.style.color = slides[num].color
+	}
+
+	let numbers = document.getElementsByClassName("number")
+	let lines = document.getElementsByClassName("line")
+
+	this._setFirstSlide = _ => {
+		numbers[0].classList.add("active")
+		numbers[1].classList.remove("active")
+		numbers[2].classList.remove("active")
+
+		lines[0].classList.remove("medium")
+		lines[1].classList.remove("long")
+		lines[1].classList.remove("medium")
+		lines[0].classList.add("long")
+	}
+
+	numbers[0].onclick = _ => {
+		this.set(0)
+	}
+
+	this._setSecondSlide = _ => {
+		numbers[0].classList.remove("active")
+		numbers[1].classList.add("active")
+		numbers[2].classList.remove("active")
+
+		lines[0].classList.remove("long")
+		lines[1].classList.remove("long")
+		lines[0].classList.add("medium")
+		lines[1].classList.add("medium")
+	}
+
+	numbers[1].onclick = _ => {		
+		this.set(1)
+	}
+
+	this._setThirdSlide = _ => {
+		numbers[0].classList.remove("active")
+		numbers[1].classList.remove("active")
+		numbers[2].classList.add("active")
+
+		lines[0].classList.remove("long")
+		lines[0].classList.remove("medium")
+		lines[1].classList.remove("medium")
+		lines[1].classList.add("long")
+	}
+
+	numbers[2].onclick = _ => {
+		this.set(2)
 	}
 }
 

@@ -182,11 +182,11 @@ body {
 }
 
 #image-box>img.slide-left {
-	animation: slideLeft 1s ease;
+	animation: slideLeft .7s ease;
 }
 
 #image-box>img.slide-right {
-	animation: slideRight 1s ease;
+	animation: slideRight .7s ease;
 }
 
 @keyframes slideLeft {
@@ -196,13 +196,13 @@ body {
 		filter: blur(0px);
 	}
 
-	50% {
+	49% {
 		transform: translateX(-100px);
 		opacity: 0;
 		filter: blur(30px);
 	}
 
-	51% {
+	50% {
 		transform: translateX(100px);
 	}
 
@@ -290,7 +290,7 @@ body {
 	z-index: -200;
 	width: 50%;
 	background-color: #ffc000;
-	transition: all .6s ease;
+	transition: all .7s ease;
 }
 
 @media screen and (max-width: 768px) {

@@ -68,19 +68,20 @@ function Slider() {
 		textBox.classList.add("hidden")
 		
 		setTimeout(_ => {
-			image.src = slides[newNum].img
+			
 		}, 500)
 
 		setTimeout(_ => {
+			image.src = slides[newNum].img
 			text.innerHTML = slides[newNum].text
 			header.innerHTML = slides[newNum].header
 			textBox.classList.remove("hidden")
-		}, 600)
+		}, 350)
 
 		setTimeout(_ => {
 			image.classList.remove("slide-left")
 			image.classList.remove("slide-right")
-		}, 1000)
+		}, 700)
 
 		switch(newNum) {
 			case 0:

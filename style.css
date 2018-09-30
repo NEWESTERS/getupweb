@@ -199,7 +199,7 @@ body {
 	49% {
 		transform: translateX(-100px);
 		opacity: 0;
-		filter: blur(30px);
+		filter: blur(15px);
 	}
 
 	50% {
@@ -245,7 +245,7 @@ body {
 	50% {
 		transform: translateX(100px);
 		opacity: 0;
-		filter: blur(30px);
+		filter: blur(15px);
 	}
 
 	51% {

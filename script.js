@@ -1,3 +1,4 @@
+// Data
 let slides = [
 	{
 		name: "Web",
@@ -26,7 +27,9 @@ window.onload = _ => {
 	let slider = new Slider()
 }
 
+// Slider class
 function Slider() {
+	// Bind DOM objects with variables
 	let image = document.querySelector("#image-box>img")
 	let bg = [ document.querySelector("#second-background>#first"),
 				document.querySelector("#second-background>#second"),
@@ -36,43 +39,35 @@ function Slider() {
 	let textBox = document.getElementById("text-box")
 	let leftButton = document.querySelector("#left-arrow")
 	let rightButton = document.querySelector("#right-arrow")
+	let numbers = document.getElementsByClassName("number")
+	let lines = document.getElementsByClassName("line")
+
+	// Initial state
 	let currentNum = 0
-
-	leftButton.onclick = _ => {
-		this.turnLeft()
-	}
-
-	rightButton.onclick = _ => {
-		this.turnRight()
-	}
-
-	this.turnLeft = _ => {
-		this.set(currentNum != 0 ? currentNum - 1 : 2)
-	}
-
-	this.turnRight = _ => {
-		this.set(currentNum != 2 ? currentNum + 1 : 0)
-	}
-
-
 	image.src = slides[0].img
 	text.innerHTML = slides[0].text
 	header.innerHTML = slides[0].header
 
+	// Slide setter
 	this.set = newNum => {
 		if (newNum == currentNum) { return }
+
+		// Start animations
 		if (newNum > currentNum) {
 			image.classList.add("slide-right")
 		} else {
 			image.classList.add("slide-left")
 		}
-		
-		textBox.classList.add("hidden")
-		
-		setTimeout(_ => {
-			
-		}, 500)
 
+		textBox.classList.add("hidden")
+
+		for (let i = bg.length - 1; i >= 0; i--) {
+			bg[i].classList.remove("active")
+		}
+
+		bg[newNum].classList.add("active")
+
+		// Change content
 		setTimeout(_ => {
 			image.src = slides[newNum].img
 			text.innerHTML = slides[newNum].text
@@ -80,11 +75,13 @@ function Slider() {
 			textBox.classList.remove("hidden")
 		}, 350)
 
+		// Remove animation classes
 		setTimeout(_ => {
 			image.classList.remove("slide-left")
 			image.classList.remove("slide-right")
 		}, 800)
 
+		// Update slide selector
 		switch(newNum) {
 			case 0:
 				this._setFirstSlide()
@@ -97,19 +94,20 @@ function Slider() {
 				break
 		}
 
-		for (let i = bg.length - 1; i >= 0; i--) {
-			bg[i].classList.remove("active")
-		}
-
-		bg[newNum].classList.add("active")
-
-		//bg.style.backgroundColor = slides[newNum].color
 		currentNum = newNum
 	}
 
-	let numbers = document.getElementsByClassName("number")
-	let lines = document.getElementsByClassName("line")
+	/* Set left slide */
+	this.turnLeft = _ => {
+		this.set(currentNum != 0 ? currentNum - 1 : 2)
+	}
 
+	/* Set right slide */
+	this.turnRight = _ => {
+		this.set(currentNum != 2 ? currentNum + 1 : 0)
+	}
+
+	// Slide selector state setters
 	this._setFirstSlide = _ => {
 		numbers[0].classList.add("active")
 		numbers[1].classList.remove("active")
@@ -121,10 +119,6 @@ function Slider() {
 		lines[0].classList.add("long")
 	}
 
-	numbers[0].onclick = _ => {
-		this.set(0)
-	}
-
 	this._setSecondSlide = _ => {
 		numbers[0].classList.remove("active")
 		numbers[1].classList.add("active")
@@ -134,11 +128,7 @@ function Slider() {
 		lines[1].classList.remove("long")
 		lines[0].classList.add("medium")
 		lines[1].classList.add("medium")
-	}
-
-	numbers[1].onclick = _ => {		
-		this.set(1)
-	}
+	}	
 
 	this._setThirdSlide = _ => {
 		numbers[0].classList.remove("active")
@@ -151,8 +141,19 @@ function Slider() {
 		lines[1].classList.add("long")
 	}
 
-	numbers[2].onclick = _ => {
-		this.set(2)
+	// Add event handlers
+	for (let i = numbers.length - 1; i >= 0; i--) {
+		numbers[i].onclick = _ => {
+			this.set(i)
+		}
+	}
+
+	leftButton.onclick = _ => {
+		this.turnLeft()
+	}
+
+	rightButton.onclick = _ => {
+		this.turnRight()
 	}
 }
 

@@ -34,7 +34,7 @@ function Slider() {
 	let textBox = document.getElementById("text-box")
 	let leftButton = document.querySelector("#left-arrow")
 	let rightButton = document.querySelector("#right-arrow")
-	let current = 0
+	let currentNum = 0
 
 	leftButton.onclick = _ => {
 		this.turnLeft()
@@ -45,11 +45,11 @@ function Slider() {
 	}
 
 	this.turnLeft = _ => {
-		this.set(current != 0 ? current - 1 : 2)
+		this.set(currentNum != 0 ? currentNum - 1 : 2)
 	}
 
 	this.turnRight = _ => {
-		this.set(current != 2 ? current + 1 : 0)
+		this.set(currentNum != 2 ? currentNum + 1 : 0)
 	}
 
 
@@ -57,26 +57,32 @@ function Slider() {
 	text.innerHTML = slides[0].text
 	header.innerHTML = slides[0].header
 
-	this.set = num => {
-		current = num
-		image.classList.add("rotate")
+	this.set = newNum => {
+		if (newNum == currentNum) { return }
+		if (newNum > currentNum) {
+			image.classList.add("slide-right")
+		} else {
+			image.classList.add("slide-left")
+		}
+		
 		textBox.classList.add("hidden")
 		
 		setTimeout(_ => {
-			image.src = slides[num].img
-		}, 300)
+			image.src = slides[newNum].img
+		}, 500)
 
 		setTimeout(_ => {
-			text.innerHTML = slides[num].text
-			header.innerHTML = slides[num].header
+			text.innerHTML = slides[newNum].text
+			header.innerHTML = slides[newNum].header
 			textBox.classList.remove("hidden")
 		}, 600)
 
 		setTimeout(_ => {
-			image.classList.remove("rotate")
-		}, 1200)
+			image.classList.remove("slide-left")
+			image.classList.remove("slide-right")
+		}, 1000)
 
-		switch(num) {
+		switch(newNum) {
 			case 0:
 				this._setFirstSlide()
 				break
@@ -88,7 +94,8 @@ function Slider() {
 				break
 		}
 
-		bg.style.color = slides[num].color
+		bg.style.color = slides[newNum].color
+		currentNum = newNum
 	}
 
 	let numbers = document.getElementsByClassName("number")

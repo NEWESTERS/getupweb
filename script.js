@@ -28,7 +28,9 @@ window.onload = _ => {
 
 function Slider() {
 	let image = document.querySelector("#image-box>img")
-	let bg = document.getElementById("second-background")
+	let bg = [ document.querySelector("#second-background>#first"),
+				document.querySelector("#second-background>#second"),
+				document.querySelector("#second-background>#third") ]
 	let text = document.querySelector("#text-box>p")
 	let header = document.querySelector("#text-box>h1")
 	let textBox = document.getElementById("text-box")
@@ -81,7 +83,7 @@ function Slider() {
 		setTimeout(_ => {
 			image.classList.remove("slide-left")
 			image.classList.remove("slide-right")
-		}, 700)
+		}, 800)
 
 		switch(newNum) {
 			case 0:
@@ -95,7 +97,13 @@ function Slider() {
 				break
 		}
 
-		bg.style.backgroundColor = slides[newNum].color
+		for (let i = bg.length - 1; i >= 0; i--) {
+			bg[i].classList.remove("active")
+		}
+
+		bg[newNum].classList.add("active")
+
+		//bg.style.backgroundColor = slides[newNum].color
 		currentNum = newNum
 	}
 

@@ -182,11 +182,11 @@ body {
 }
 
 #image-box>img.slide-left {
-	animation: slideLeft .7s ease;
+	animation: slideLeft .8s ease;
 }
 
 #image-box>img.slide-right {
-	animation: slideRight .7s ease;
+	animation: slideRight .8s ease;
 }
 
 @keyframes slideLeft {
@@ -289,8 +289,33 @@ body {
 #second-background {
 	z-index: -200;
 	width: 50%;
+	/*background-color: #3370d7;
+	transition: all .7s ease;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#second-background>div {
+	height: 100%;
+	width: 0%;
+	transition: width .6s ease;
+}
+
+#second-background>#first {
+	background-color: #3370d7;
+}
+
+#second-background>#second {
+	background-color: #45efb5;
+}
+
+#second-background>#third {
 	background-color: #ffc000;
-	transition: all .7s ease;
+}
+
+#second-background>div.active {
+	width: 100%;
 }
 
 @media screen and (max-width: 768px) {

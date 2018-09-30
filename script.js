@@ -94,7 +94,7 @@ function Slider() {
 				break
 		}
 
-		bg.style.color = slides[newNum].color
+		bg.style.backgroundColor = slides[newNum].color
 		currentNum = newNum
 	}
 

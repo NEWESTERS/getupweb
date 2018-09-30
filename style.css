@@ -105,15 +105,11 @@ body {
 
 #text-box {
 	font-family: "Manrope";
-	z-index: 100;
-	
+	z-index: 100;	
 	margin: auto;
-	height: 55%;
-	
+	height: 55%;	
 	width: 60%;
-
 	transition: all .6s ease;
-	opacity: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -121,6 +117,7 @@ body {
 
 #text-box.hidden {
 	opacity: 0;
+	filter: blur(10px);
 }
 
 #text-box>h1 {
@@ -293,6 +290,7 @@ body {
 	z-index: -200;
 	width: 50%;
 	background-color: #ffc000;
+	transition: all .6s ease;
 }
 
 @media screen and (max-width: 768px) {

@@ -8,13 +8,14 @@ body {
 	display: flex;
 	flex-direction: row;
 	height: 100%;
-	width: 100vw;
+	width: 110%;
 	overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
 	#bg-wrap {
 		height: 45%;
+		width: 100%;
 	}
 }
 
@@ -199,7 +200,7 @@ body {
 	49% {
 		transform: translateX(-100px);
 		opacity: 0;
-		filter: blur(15px);
+		filter: blur(8px);
 	}
 
 	50% {
@@ -245,7 +246,7 @@ body {
 	50% {
 		transform: translateX(100px);
 		opacity: 0;
-		filter: blur(15px);
+		filter: blur(8px);
 	}
 
 	51% {
@@ -287,8 +288,11 @@ body {
 
 /* Second background color */
 #second-background {
+	height: 130%;
+	margin-top: -12%;
+	transform: rotate(15deg);
 	z-index: -200;
-	width: 50%;
+	width: 55%;
 	/*background-color: #3370d7;
 	transition: all .7s ease;*/
 	display: flex;
@@ -320,7 +324,8 @@ body {
 
 @media screen and (max-width: 768px) {
 	#second-background {
-		width: 60%;
+		width: 70%;
+		margin-right: -10%;
 	}
 }
 

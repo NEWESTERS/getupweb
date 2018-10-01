@@ -24,6 +24,12 @@ let slides = [
 ]
 
 window.onload = _ => {
+	// Images preload
+	for (let i = 0; i < slides.length; i++) {
+		new Image().src = slides[i].img
+	}
+
+	// Create slider
 	let slider = new Slider()
 }
 

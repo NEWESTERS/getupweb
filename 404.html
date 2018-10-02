@@ -10,6 +10,17 @@
 			margin: 0;
 			background-color: #e53e42;
 			font-family: "Manrope";
+			animation: colorize 3s ease;
+		}
+
+		@keyframes colorize {
+			0% {
+				background-color: #fff;
+			}
+
+			100% {
+				background-color: #e53e42;
+			}
 		}
 
 		#wrapper {
@@ -25,18 +36,31 @@
 
 		#title {
 			font-weight: 700;
-			font-size: 15em
+			font-size: 15em;
+			animation: scale 3s ease;
 		}
 
 		#info {
 			font-weight: 700;
 			font-size: 2em;
+			animation: scale 2s ease;
 		}
 
 		#home {
 			color: white;
 			font-weight: 400;
 			font-size: 1.5em;
+			animation: scale 2s ease;
+		}
+
+		@keyframes scale {
+			0% {
+				transform: scale(.7);
+			}
+
+			100% {
+				transform: scale(1);
+			}
 		}
 
 		@media screen and (max-width: 768px) {

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Страница не найдена</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="fonts/font.css">
+	<style type="text/css">
+		body {
+			margin: 0;
+			background-color: #e53e42;
+			font-family: "Manrope";
+		}
+
+		#wrapper {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: white;
+		}
+
+		#title {
+			font-weight: 700;
+			font-size: 15em
+		}
+
+		#info {
+			font-weight: 700;
+			font-size: 2em;
+		}
+
+		#home {
+			color: white;
+			font-weight: 400;
+			font-size: 1.5em;
+		}
+
+		@media screen and (max-width: 768px) {
+			#title {
+				font-size: 10em;
+			}
+
+			#info {
+				font-size: 1.5em;
+			}
+
+			#home {
+				font-size: 1.2em;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="title">404</div>
+		<div id="info">Как вы сюда попали?</div>
+		<a href="index.html" id="home">Вернуться на главную</a>
+	</div>
+</body>
+</html>

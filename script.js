@@ -162,7 +162,3 @@ function Slider() {
 		this.turnRight()
 	}
 }
-
-
-
-

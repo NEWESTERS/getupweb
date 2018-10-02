@@ -72,14 +72,14 @@ a {
 	z-index: 200;
 }
 
-#socials>img {
+#socials>a>img {
 	margin-top: 10px;
 	width: 100%;
 	cursor: pointer;
 	transition: all .4s ease;
 }
 
-#socials>img:hover {
+#socials>a>img:hover {
 	transform: scale(1.5);
 }
 

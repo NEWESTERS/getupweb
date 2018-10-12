@@ -5,7 +5,7 @@ let slides = [
 		img: "assets/slider/web.png",
 		color: "#3370d7",
 		header: "Landing Page, интернет-магазин или корпоративный сайт для Вашего бизнеса",
-		text: "Вы сможете получать платежеспособных клиентов из интернета. Оптимизировать рекламные расходы и при этом увеличить поток заявок покупателей. Узнайте стоимость и сроки разработки сайта для Вашей ниши – получите коммерческое предложение."
+		text: "Вы сможете получать платежеспособных клиентов из интернета. Оптимизировать рекламные расходы и при этом увеличить поток заявок покупателей.</p><p> Узнайте стоимость и сроки разработки сайта для Вашей ниши – получите коммерческое предложение."
 	},
 	{
 		name: "Design",
@@ -61,11 +61,13 @@ function Slider() {
 		// Start animations
 		if (newNum > currentNum) {
 			image.classList.add("slide-right")
+			textBox.classList.add("slide-right")
 		} else {
 			image.classList.add("slide-left")
+			textBox.classList.add("slide-left")
 		}
 
-		textBox.classList.add("hidden")
+		
 
 		for (let i = bg.length - 1; i >= 0; i--) {
 			bg[i].classList.remove("active")
@@ -78,14 +80,16 @@ function Slider() {
 			image.src = slides[newNum].img
 			text.innerHTML = slides[newNum].text
 			header.innerHTML = slides[newNum].header
-			textBox.classList.remove("hidden")
+			//textBox.classList.remove("hidden")
+
 		}, 350)
 
 		// Remove animation classes
 		setTimeout(_ => {
 			image.classList.remove("slide-left")
 			image.classList.remove("slide-right")
-		}, 800)
+			textBox.className = ""
+		}, 600)
 
 		// Update slide selector
 		switch(newNum) {
@@ -119,21 +123,18 @@ function Slider() {
 		numbers[1].classList.remove("active")
 		numbers[2].classList.remove("active")
 
-		lines[0].classList.remove("medium")
-		lines[1].classList.remove("long")
-		lines[1].classList.remove("medium")
-		lines[0].classList.add("long")
+		
+		lines[1].className = "line"
+		lines[0].className = "long line"
 	}
 
 	this._setSecondSlide = _ => {
 		numbers[0].classList.remove("active")
 		numbers[1].classList.add("active")
 		numbers[2].classList.remove("active")
-
-		lines[0].classList.remove("long")
-		lines[1].classList.remove("long")
-		lines[0].classList.add("medium")
-		lines[1].classList.add("medium")
+		
+		lines[1].className = "medium line"
+		lines[0].className = "medium line"
 	}	
 
 	this._setThirdSlide = _ => {
@@ -141,10 +142,8 @@ function Slider() {
 		numbers[1].classList.remove("active")
 		numbers[2].classList.add("active")
 
-		lines[0].classList.remove("long")
-		lines[0].classList.remove("medium")
-		lines[1].classList.remove("medium")
-		lines[1].classList.add("long")
+		lines[0].className = "line"
+		lines[1].className = "long line"
 	}
 
 	// Add event handlers

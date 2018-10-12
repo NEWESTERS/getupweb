@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	overflow: hidden;
+	-webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -235,16 +236,26 @@ a {
 
 @media screen and (max-width: 768px) {
 	#text-box {
+		height: 55%;
+		overflow: scroll;
 		justify-content: flex-start;
 		width: 90%;
+		margin-top: 0;
 	}
 
 	#text-box>h1 {
-		font-size: 1em;
+		font-size: 1.2em;
 	}
 
 	#text-box>p {
-		font-size: .7em;
+		font-size: .9em;
+	}
+}
+
+@media screen and (max-height: 414px) {
+	#text-box {
+		height: 90%;
+		width: 75%;
 	}
 }
 
@@ -303,6 +314,12 @@ a {
 		height: 35%;
 		width: auto;
 		
+	}
+}
+
+@media screen and (max-height: 414px) {
+	#image-box {
+		display: none;
 	}
 }
 
@@ -500,7 +517,7 @@ a {
 	#diagonal {
 		top: -65%;
 		right: -25%;
-		height: 75vh;
+		height: 85vh;
 	}
 
 	#second-background {
@@ -509,3 +526,8 @@ a {
 	}	
 }
 
+@media screen and (max-height: 414px) {
+	#bg-wrap {
+		display: none;
+	}
+}

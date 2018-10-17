@@ -132,7 +132,13 @@ a {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	/*animation: slideIn .6s ease forwards;*/
 }
+
+/*@keyframes slideIn {
+	0%{ transform: translateX(-100px) }
+	100%{ transform: translateX(0) }
+}*/
 
 #placeholder {
 	width: 6%;
@@ -434,12 +440,13 @@ a {
 
 @media screen and (max-width: 768px) {
 	#bottom-menu {
-		width: 90%;
-		left: 10%;
+		width: 94%;
+		left: 3%;
+		justify-content: space-between;
 	}
 
 	#home-button {
-		width: 100px;
+		width: 20%;
 		font-size: .7em;
 		text-align: center;
 	}
@@ -453,7 +460,7 @@ a {
 	}
 
 	#slider-arrows {
-		width: 70px;		
+		width: 20%;		
 	}
 }
 
@@ -484,7 +491,13 @@ a {
 	height: 130vh;
 	width: 500px;
 	background-color: #fff;
-	transform: rotate(15deg);
+	/*transform: rotate(15deg);*/
+	animation: rotate .6s ease forwards;
+}
+
+@keyframes rotate {
+	0% { transform: rotate(5deg) }
+	100% { transform: rotate(15deg) }
 }
 
 /* Second background color */
@@ -497,6 +510,12 @@ a {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	animation: fadeIn .6s ease forwards;
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0 }
+	100% { opacity: 1 }
 }
 
 #second-background>div {

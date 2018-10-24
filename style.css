@@ -109,6 +109,7 @@ a {
 -----------------------------------------*/
 #content {
 	height: 100%;
+	width: 100%;
 	position: absolute;
 	z-index: 100;
 	display: flex;
@@ -287,8 +288,18 @@ a {
 /* Container for main image */
 #image-box {	
 	z-index: 100;
-	margin: auto;
-	height: 75%;	
+	/*margin: auto*/;
+	height: 100%;
+	width: 44%;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (orientation: portrait) {
+	#image-box {
+		height: 75%;
+	}
 }
 
 #image-box>img {
@@ -335,8 +346,7 @@ a {
 		margin: 0 auto 0 auto;
 		padding: 0;
 		height: 35%;
-		width: auto;
-		
+		width: auto;		
 	}
 }
 

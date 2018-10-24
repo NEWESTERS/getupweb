@@ -1,28 +1,3 @@
-// Data
-let slides = [
-	{
-		name: "Web",
-		img: "assets/slider/cup.png",
-		color: "#3370d7",
-		header: "Внедрите автоворонку в Ваш бизнес и поднимите ROI рекламного бюджета в 1,5 раза",
-		text: "Вы получите концепцию прибыльной автоворонки для Вашей ниши бизнеса с внедрением под ключ. Создадим цепочки писем, SMS сообщений, автозвонков в зависимости от поведения покупателей на сайте и интегрируем всё это в CRM.</p><p>Возвратите ушедших посетителей, повысите средний чек и чистую прибыль с каждого заказа на сайте."
-	},
-	{
-		name: "Code",
-		img: "assets/slider/tube.png",
-		color: "#ffc000",
-		header: "Получайте целевых посетителей на Ваш сайт и сообщество в социальных сетях",
-		text: "Таргетированная реклама в Vk, Facebook и Instagram. Показывайте рекламу только целевым клиентам, которые уже готовы купить Ваш товар.</p><p>Создадим стратегию продвижения в социальных сетях, которая удвоит поток лояльных клиентов в Ваш бизнес."
-	},
-	{
-		name: "Design",
-		img: "assets/slider/label.png",
-		color: "#45efb5",
-		header: "Увеличьте поток заказов с сайта на 20-30% через Яндекс Директ и Google Adwords",
-		text: "Сделаем анализ текущих рекламных кампаний и подготовим план работ по улучшению показателей. После этого создадим новый аккаунт с учётом всех правок.</p><p>Вам останется пополнить рекламный бюджет и сравнить показатели \"было/стало\"."
-	}
-]
-
 window.onload = _ => {
 	// Images preload
 	for (let i = 0; i < slides.length; i++) {
@@ -58,9 +33,6 @@ function Slider() {
 
 	// Initial state
 	let currentNum = -1
-	// image.src = slides[0].img
-	// text.innerHTML = slides[0].text
-	// header.innerHTML = slides[0].header
 
 	// Slide setter
 	this.set = newNum => {
@@ -88,7 +60,7 @@ function Slider() {
 			image.src = slides[newNum].img
 			text.innerHTML = slides[newNum].text
 			header.innerHTML = slides[newNum].header
-		}, 350)
+		}, 300)
 
 		// Remove animation classes
 		setTimeout(_ => {
